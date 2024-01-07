@@ -1,6 +1,7 @@
 "use client"
-import { CompassIcon, HomeIcon } from 'lucide-react'
+import { BarChart, CompassIcon, HomeIcon, List } from 'lucide-react'
 import SidebarItem from './sidebar-item';
+import { usePathname } from 'next/navigation';
 
 const guestRoutes = [
     {
@@ -15,8 +16,22 @@ const guestRoutes = [
     }
 ]
 
+const teacherRoutes = [
+  {
+    icon: List,
+    label: 'الكورسات',
+    href: '/teacher/courses'
+  },
+  {
+    icon: BarChart,
+    label: 'إحصائيات',
+    href: '/teacher/analytics'
+  }
+]
+
 const SidebarRoutes = () => {
-    const routes = guestRoutes;
+    const pathName = usePathname();
+    const routes = pathName?.startsWith('/teacher') ? teacherRoutes : guestRoutes;
   return (
     <div className='flex flex-col w-full h-full'>
         {
