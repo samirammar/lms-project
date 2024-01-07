@@ -1,9 +1,12 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Amiri } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Amiri({
+  subsets: ['arabic'],
+  weight: '700'
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
